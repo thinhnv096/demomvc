@@ -3,6 +3,7 @@ class myDB
 {
 
     private $db;
+    private $result = NULL;
     public function __construct()
     {
         $servername = "localhost";
@@ -18,4 +19,11 @@ class myDB
             echo "Connection failed: " . $e->getMessage();
         }
     }
+
+    public function execute($sql){
+        $this->result = $this->db->query($sql);
+        return $this->result;
+    }
+
+    
 }
